@@ -1,0 +1,137 @@
+<div>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f6dd53;">
+        <div class="container-fluid">
+            <img style="height: 30px; width: auto;" src="https://cdn-icons-png.flaticon.com/512/1518/1518840.png" alt="">
+            &nbsp;
+            &nbsp;
+            <a style="font-size: 30px;" class="navbar-brand" routerLink="/">MNSS Insurance</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+              </li>
+             
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Products
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" routerLink="/healthpoliciy">Health Policies</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" routerLink="/homepoliciy">Home Policies</a></li>
+                </ul>
+              </li>  
+              
+            </ul>
+            <form class="d-flex" >
+
+               
+              
+              <button style="background-color:rgb(217, 134, 2); color: rgb(255, 255, 255); margin-right: 20px;" routerLink="/" type="button" class="btn btn-warning">Logout</button>
+             
+          </form>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+
+
+<div style="margin-top: 40px;" class="container">
+
+<button class="btn btn-warning" routerLink="/newhealthpolicy">Add New Health Policy</button>
+
+    <div style=" box-shadow: 5px 5px 10px;" class="shadow-lg p-3 mb-5 bg-white rounded  row">
+    <div >
+      <h3 style="color: rgb(217, 134, 2);">Health Policies</h3>
+      <br>
+      <table class="table">
+        <thead>
+          <tr style="color: rgb(70, 25, 146);" class="table-warning">
+            <th scope="col">Policy Number</th>
+            <th scope="col">Policy Name</th>
+            <th scope="col">Policy Description</th>
+            <th scope="col">Image</th>
+            <th scope="col">Sumassurance</th>
+            <th scope="col">Policy Term</th>
+            <th scope="col">Premium</th>
+            <th scope="col">Hospital Id</th>
+            <th scope="col">Axtion</th>
+          </tr>
+        </thead>
+
+        
+      
+     
+  
+        <tbody>
+          <tr *ngFor ="let healthpolicy of healthpolicy">
+            <td>{{healthpolicy.policyid}}</td>
+            <td>{{healthpolicy.policyname}}</td>
+            <td>{{healthpolicy.policydescription}}</td>
+            <td>{{healthpolicy.imageurl}}</td>
+            <td>{{healthpolicy.sumassurance}}</td>
+            <td>{{healthpolicy.policyterm }}</td>
+            <td>{{healthpolicy.premium}}</td>
+            <td>{{healthpolicy.hospitalid}}</td>
+            
+            <td>
+              <button type="submit" style="margin-bottom: 20px;" class="btn btn-warning" (click)="upadetHealthPolicy(healthpolicy.policyid)">Update</button>
+              <button type="submit" class="btn btn-warning" (click)="deleteHealthPolicy(healthpolicy.policyid)">Delete</button>
+            </td>
+          </tr>            
+        </tbody>
+      </table>
+    </div>
+  </div>
+   
+  <button class="btn btn-warning" routerLink="/newhomepolicy">Add New Home Policy</button>
+      <div style=" box-shadow: 5px 5px 10px;" class="shadow-lg p-3 mb-5 bg-white rounded  row">
+        
+          <div > 
+            <h3 style="color: rgb(217, 134, 2);">Home Policies</h3>
+            <br>
+            <table class="table">
+              <thead>
+                <tr style="color: rgb(70, 25, 146);" class="table-warning">
+                  <th scope="col">Policy Number</th>
+                  <th scope="col">Policy Name</th>
+                  <th scope="col">Policy Description</th>
+                  <th scope="col">Image</th>
+                  <th scope="col">Sumassurance</th>
+                  <th scope="col">Policy Term</th>
+                  <th scope="col">Location</th>
+                  <th scope="col">Premium</th>
+                  <th scope="col">Axtion</th>
+                </tr>
+              </thead>
+
+            
+    
+  
+              <tbody>
+                <tr *ngFor ="let homepolicy of homepolicy">
+                  <td>{{homepolicy.policyid}}</td>
+                  <td>{{homepolicy.policyname}}</td>
+                  <td>{{homepolicy.policydescription}}</td>
+                  <td>{{homepolicy.imageurl}}</td>
+                  <td>{{homepolicy.sumassurance }}</td>
+                  <td>{{homepolicy.policyterm }}</td>
+                  <td>{{homepolicy.location}}</td>
+                  <td>{{homepolicy.premium}}</td>
+                  <td>
+                    <button type="submit" style="margin-bottom: 20px;" class="btn btn-warning" (click)="upadetHomePolicy(homepolicy.policyid)">Update</button>
+                    <button type="submit" class="btn btn-warning" (click)="deleteHomePolicy(homepolicy.policyid)">Delete</button>
+                  </td>
+                 
+                  
+                </tr>            
+              </tbody>
+            </table>
+          </div>
+      </div>
+  
+   </div>

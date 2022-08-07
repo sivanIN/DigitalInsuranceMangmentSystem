@@ -1,0 +1,119 @@
+<div>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f6dd53;">
+      <div class="container-fluid">
+          <img style="height: 30px; width: auto;" src="https://cdn-icons-png.flaticon.com/512/1518/1518840.png" alt="">
+          &nbsp;
+          &nbsp;
+          <a style="font-size: 30px;" class="navbar-brand" routerLink="/">MNSS Insurance</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+            </li>
+           
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Products
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" routerLink="/healthpoliciy">Health Policies</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" routerLink="/homepoliciy">Home Policies</a></li>
+              </ul>
+            </li>
+
+           
+
+   
+
+          
+
+            
+            
+          </ul>
+          <a routerLink="/adminpolicydetails" style="margin-right: 35px;" class="btn btn-success">Policy listing</a>
+          <button style="background-color:rgb(217, 134, 2); color: rgb(255, 255, 255); margin-right: 20px;" routerLink="/" type="button" class="btn btn-warning">Logout</button>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+
+
+  <div style="margin-top: 100px;" class="container">
+
+    <div style=" box-shadow: 5px 5px 10px;" class="shadow-lg p-3 mb-5 bg-white rounded  row" *ngFor = "let user of users">
+        
+      <div class="col-6" >
+        <h5 class="card-title">User Id: {{user.userid}}</h5>
+        <h5 class="card-title">Email Id: {{user.emailid}}</h5>
+        <h5 class="card-title">Phone number:  {{user.mobilenumber}}</h5>
+        
+          <button  class="btn btn-warning" type="submit" (click)="updatestatus(user.userid)" data-bs-toggle="modal" data-bs-target="#exampleModal">Approval</button>
+      </div>
+    </div>
+      <div style=" box-shadow: 5px 5px 10px;" class="shadow-lg p-3 mb-5 bg-white rounded  row"  *ngFor = "let policydetails of policydetails">
+      <div class="col-6">
+        <p class="card-text">Policy Name: {{policydetails.policyname}}</p>
+            <p class="card-text">Policy Id:{{policydetails.policyid}}</p>
+            <p class="card-text">Policy Sum Assurance:{{policydetails.sumassurance}}</p>
+            <p class="card-text">Policy Premium:{{policydetails.premium}}</p>
+            <p class="card-text">Policy Term:{{policydetails.policyterm}}</p>
+            <br>
+      </div>
+    </div>
+   
+    </div>
+
+
+
+
+ <div class="container">
+  <div class="row">
+    
+    
+  </div>
+</div>
+ 
+
+
+<!-- Modal -->
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form style="width: 500px;"  #ef="ngForm"  (ngSubmit)="updateUserpolicy()">
+        
+          
+          <input type="text" hidden name="polcid"  [(ngModel)]="userpolice.policyid">
+          <br>
+          <label for=""><b>Approval:</b> </label><br> <br>
+          <select style="border-radius: 25px; width: 400px;" class="form-select" aria-label="Default select example" name="status" [(ngModel)]="userpolice.status">
+            <option selected  >Policy Status</option>
+            <option value="Approved">Aproved</option>
+            <option value="Rejected">Reject</option>
+          </select>
+          <br>
+          <button  class="btn btn-warning" type="submit" data-bs-toggle="modal" data-bs-target="#modall">Submit</button>
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      
+      </div>
+    </div>
+  </div>
+</div>
