@@ -1,9 +1,5 @@
 # Projectabstract
 
-ER Diagram - Table structure ---->
-Rest Api - Request -------------------> This details are integrated in pptx file 
-Flow chart for project -------->
-
-Page UI design is inside ScreenDesign folder.
-
-DigitalInsurance.sql file contains details of SQL queries.
+The Repo  consist of design of each screen which where developed.
+It has detailed designed flow diagram and ER daigram .
+DigitalInsuranceQuery.sql file has all the query which we used in SQL database.
