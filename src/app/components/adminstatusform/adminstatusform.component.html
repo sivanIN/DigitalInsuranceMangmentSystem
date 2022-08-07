@@ -1,0 +1,14 @@
+<form style="width: 500px;">
+   
+    <br>
+    <br>
+    <br>
+    <input type="text" name="policid" [(ngModel)]="userpolicy.policyid">
+    <select style="border-radius: 25px;" class="form-select" aria-label="Default select example">
+      <option selected [(ngModel)]="userpolicy.status">Select Action</option>
+      <option value="1">Aproved</option>
+      <option value="2">Reject</option>
+    </select>
+    <br>
+    <button  class="btn btn-warning" type="submit" data-bs-toggle="modal" data-bs-target="#modall">Submit</button>
+    </form>

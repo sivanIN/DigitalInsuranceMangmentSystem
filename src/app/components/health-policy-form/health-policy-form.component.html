@@ -1,0 +1,135 @@
+
+
+
+     <body style="background-image: linear-gradient(to bottom, rgb(250, 248, 181), rgba(255, 0, 0,0));">
+        <div>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f6dd53;">
+            <div class="container-fluid">
+                <img style="height: 30px; width: auto;" src="https://cdn-icons-png.flaticon.com/512/1518/1518840.png" alt="">
+                &nbsp;
+                &nbsp;
+                <a style="font-size: 30px;" class="navbar-brand" routerLink="/">MNSS Insurance</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+                  </li>
+                 
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Products
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" routerLink="/healthpoliciy">Health Policies</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" routerLink="/homepoliciy">Home Policies</a></li>
+                    </ul>
+                  </li>
+    
+    
+              
+                  
+                </ul>
+                  <form class="d-flex" >
+    
+                   
+                    <button   style="background-color:rgb(217, 134, 2); color: rgb(255, 255, 255); margin-right: 20px;" routerLink="/adminpolicydetails" type="button" class="btn btn-warning">Back</button>
+                  
+                   
+                  &nbsp; &nbsp;
+             
+                </form>
+    
+             
+    
+                
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+
+     <div style="border-radius: 50px; background-color: azure; box-shadow: 5px 5px 10px; margin-top: 20px; margin-left: 400px; margin-right: 400px;">
+        <br>
+    <h3 style="color: rgb(221, 155, 12); text-align: center;">Health Policy Details</h3>
+
+    <br>
+    <form  #ep="ngForm" style="width: 800px; margin-left: 200px; margin-top: 10px;" (ngSubmit)="newpolicy()">
+
+  
+        <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Policy Number</label>
+        <div class="col-sm-10">
+            <input style="border-radius: 25px;" type="number" name="policyid" [(ngModel)]="healthpolicy.policyid ">
+    
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Policy Name </label>
+        <div class="col-sm-10">
+            <input style="border-radius: 25px;" type="text" name="pname" [(ngModel)]="healthpolicy.policyname ">
+    
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Policy Description</label>
+        <div class="col-sm-10">
+            <input style="border-radius: 25px;" type="text" name="pdescription" [(ngModel)]="healthpolicy.policydescription " >
+    
+        </div>
+    </div>
+    
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Image url</label>
+           <div class="col-sm-10">
+            <input style="border-radius: 25px;" type="test" name="imageurl" [(ngModel)]="healthpolicy.imageurl ">
+           </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Sum Assurance</label>
+           <div class="col-sm-10">
+            <input style="border-radius: 25px;" type="number" name="sumassurance"  [(ngModel)]="healthpolicy.sumassurance ">
+           </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Policy Term</label>
+           <div class="col-sm-10">
+            <input style="border-radius: 25px;" type="number" name="policyterm" [(ngModel)]="healthpolicy.policyterm ">
+           </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Basic Premium</label>
+           <div class="col-sm-10">
+            <input style="border-radius: 25px;" type="number" name="premium" [(ngModel)]="healthpolicy.premium  ">
+           </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Hospitals</label>
+           <div class="col-sm-10">
+            <select  class="form-select" name="hospital" aria-label="Default select example" style=" border-radius: 25px; width: 190px;" [(ngModel)]="healthpolicy.hospitalid " >
+                <option   selected >Hospital</option>
+                <option   value="101">Sahayadri</option>   
+                <option   value="102">Perl</option>
+                <option   value="103">Orange</option>    
+             </select>
+           
+           </div>
+    </div>
+    <br>
+
+    <div style="margin-left: 100px;" class="form-group row">
+      <div class=" col-sm-2"><button class="btn btn-warning" type="submit">Save</button></div>
+      <div class="col-sm-2"><button class="btn btn-warning" type="reset">Reset</button></div>
+    </div>
+    <br>
+    
+
+    
+    </form>
+    <br>
+</div>
+
+</body>

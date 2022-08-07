@@ -1,0 +1,87 @@
+
+<body style="background-image: linear-gradient(to bottom, rgb(250, 248, 181), rgba(255, 0, 0,0));">
+    <div>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f6dd53;">
+        <div class="container-fluid">
+            <img style="height: 30px; width: auto;" src="https://cdn-icons-png.flaticon.com/512/1518/1518840.png" alt="">
+            &nbsp;
+            &nbsp;
+            <a style="font-size: 30px;" class="navbar-brand" routerLink="/">MNSS Insurance</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+              </li>
+             
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Products
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" routerLink="/healthpoliciy">Health Policies</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" routerLink="/homepoliciy">Home Policies</a></li>
+                </ul>
+              </li>
+
+           
+
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" routerLink="/mypolicy">My Policy</a>
+              </li>
+
+          
+              
+            </ul>
+            <form class="d-flex" >
+
+               
+              <button  *ngIf="!logedin" style="background-color:rgb(217, 134, 2); color: rgb(255, 255, 255); margin-right: 20px;" routerLink="/login" type="button" class="btn btn-warning">Login</button>
+              <button  *ngIf="logedin" style="background-color:rgb(217, 134, 2); color: rgb(255, 255, 255); margin-right: 20px;" (click)="logout()" type="button" class="btn btn-warning">Logout</button>
+              <img style="height: 30px;" src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png" alt="">
+            &nbsp; &nbsp;
+            <h5 style="padding-top: 5px;">{{emailid}}</h5>
+          </form>
+            <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Launch demo modal
+              </button> -->
+              <!-- <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModallogin">Login</button>  -->
+            
+          </div>
+        </div>
+      </nav>
+    </div>
+
+
+  
+
+
+        <div class="container" >
+        <div class="row" >
+          <div class="col-8" *ngFor = "let policy of homepolicy">
+            <div class="card mb-3" style="width: 700px; margin-left: 100px; margin-top: 10px; box-shadow: 5px 5px 10px; background-color: azure;">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img [src]="policy.imageurl" style="width: 300px; margin-top: 20px; margin-left: 10px;" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">{{policy.policyname}}</h5>
+                    <p class="card-text">{{policy.policydescription}}</p>
+                    <button (click)="getpolicy(policy.policyid)" class="btn btn-warning">View More</button>
+                    <p class="card-text"><small class="text-muted">Login to view more</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+   <app-homepremiumcalculator></app-homepremiumcalculator>
+  </div>
+        </div>
+      </div>
+
+  </body>

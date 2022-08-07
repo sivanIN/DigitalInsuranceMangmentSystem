@@ -1,0 +1,39 @@
+
+<div style=" box-shadow: 5px 5px 10px;" class="shadow-lg p-3 mb-5 bg-white rounded  row">
+    <h3 style="color: rgb(217, 134, 2); margin-left: 20px;">Calculate Premium</h3>
+<form #cal="ngForm" (ngSubmit)="calculatePremium()">
+    <div class="container" style="box-shadow: inset;">
+       
+      <div class="row">
+        <label for="policy"><b>Home Policies:</b> </label>
+         
+        <select class="form-select"  aria-label="Default select example" style="width:300px;margin-left: 12px;" name="policyid" [(ngModel)]="policyid" required>
+            
+            <option  *ngFor= "let homepolicy of homepolicy" [value]="homepolicy.policyid">{{homepolicy.policyname}}</option>
+         </select>
+      </div>
+      &nbsp;
+      <div class="row">
+        <label for="policy"><b>Location:</b> </label>
+        <select class="form-select"  aria-label="Default select example" style="width:300px;margin-left: 12px;" name="location" [(ngModel)]="location" required>
+           
+            <option  value="Urban">Urban</option>
+            <option  value="Rural">Rural</option>
+         </select>
+      </div>
+      &nbsp;
+      <div class="row">
+        <label for="policy"><b>Contact Number:</b> </label>
+       <input type="number" name="phnumber"  style="width: 300px; margin-left: 12px;" name="phonenumber" [(ngModel)]="phonenumber" required>
+      </div>
+      &nbsp;
+      <div class="row">
+       <button class="btn btn-warning" type="submit" style="width: 300px; margin-left: 12px;">Calculate Premium</button>
+       </div>
+       <p>Monthly Premium: {{premium}}</p>
+
+    </div>
+   
+</form>
+
+</div>

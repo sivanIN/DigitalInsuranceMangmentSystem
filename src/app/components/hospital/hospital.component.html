@@ -1,0 +1,47 @@
+
+    <form #se="ngForm" (ngSubmit)="getHospitalByIlness()">
+    <div class="row">
+        
+    
+        <input type="text" placeholder="Filter by Illness" class="form-control" style="width: 300px; margin-bottom: 10px;" name="illness" [(ngModel)]="illness" aria-describedby="emailHelp">
+        <button type="submit" style="width: 100px; margin-left: 5px; margin-bottom: 10px;"  class="btn btn-warning" value="search">Submit</button>
+        <br>
+       
+    </div>
+</form>
+
+
+
+
+
+
+<div style=" box-shadow: 5px 5px 10px;" class="shadow-lg p-3 mb-5 bg-white rounded  row">
+  <div >
+    <!-- <h3 style="color: rgb(217, 134, 2);">Hopital Deatils</h3> -->
+    <br>
+    <table class="table">
+      <thead>
+        <tr style="color: rgb(70, 25, 146);" class="table-warning">
+          <th   scope="col">Hospital Name</th>
+          <th  scope="col">Illness</th>
+          
+        </tr>
+      </thead>
+
+      
+    
+   
+
+      <tbody>
+        <tr *ngFor ="let hospitals of hospitals">
+          <td>{{hospitals.hospitalname}}</td>
+          <td>{{hospitals.illness}}</td>
+         
+          
+          
+         
+        </tr>            
+      </tbody>
+    </table>
+  </div>
+</div>

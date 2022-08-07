@@ -1,0 +1,102 @@
+
+
+
+<body style="background-image: linear-gradient(to bottom, rgb(250, 248, 181), rgba(255, 0, 0,0));" >
+    
+
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f6dd53;">
+            <div class="container-fluid">
+                <img style="height: 30px; width: auto;" src="https://cdn-icons-png.flaticon.com/512/1518/1518840.png" alt="">
+                &nbsp;
+                &nbsp;
+                <a style="font-size: 30px;" class="navbar-brand" routerLink="/">MNSS Insurance</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+                  </li>
+                 
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Products
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" routerLink="/healthpoliciy">Health Policies</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" routerLink="/homepoliciy">Home Policies</a></li>
+                    </ul>
+                  </li>
+    
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">About Us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" (click)="logout()" aria-current="page" >Logout</a>
+                  </li>
+    
+              
+                  
+                </ul>
+                <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Launch demo modal
+                  </button>
+                  <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModallogin">Login</button>  -->
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+
+
+
+    <div>
+        <div class="container middle">
+            <div class="row">
+                <div class="col-4">
+
+                  <img [src]="policy.imageurl" alt="" style="height: 400px; width: 400px; margin-top: 60px; border-radius: 10%; box-shadow: 5px 5px 10px;">
+
+                   
+                </div>
+
+                <div class="col-8">
+                    <div class="card" style="margin-top: 20px; background-color: rgb(236, 253, 253); box-shadow: 5px 5px 10px;">
+                        <div style="opacity: 1;" class="card-body">
+                          <h2 style="opacity: 1; color: rgb(217, 134, 2);" class="card-title text-center" >{{policy.policyname}} Home Policy</h2>
+                          <br>
+                          <h4 class="card-subtitle mb-2 text-muted text-center">{{policy.policydescription}}</h4>
+                          <p class="card-text"></p>
+                          <br>
+                          <ul class="list-group list-group-flush" >
+                        
+                            <li class="list-group-item">{{policy.sumassurance}} Sum Insured will be available for persons. This is applicable only at the time of inception of this policy</li>
+                            <li class="list-group-item"> <b>{{policy.policyterm}}</b> year of coverage</li>
+                            <li class="list-group-item"> <b>Premium</b> basic pay: {{policy.premium }}</li>
+                            <div *ngIf=" policy.location == 'Urban'">
+                            <li class="list-group-item"> <b>Premium</b> for urban area: {{3 * policy.premium }}</li>
+                           </div>
+                           <div *ngIf=" policy.location == 'Rural'">
+                            <li class="list-group-item"> <b>Premium</b> for Urarl area: {{2 * policy.premium }}</li>
+                           </div>
+                            
+
+                          </ul>
+                          <!-- <h5>Sumassurance = </h5>
+                          <h5>Policy term = </h5>
+                          <h5>Premium = </h5> -->
+                          <br>
+                          <button style="margin-left: 45%;" type="submit" class="btn btn-warning" (click)="saveUserpolicy()" >Buy Now</button>
+                          
+                        </div>
+                      </div>
+                </div>
+              </div>
+
+        </div>
+    </div>
+
+</body>

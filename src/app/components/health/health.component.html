@@ -1,0 +1,196 @@
+
+<body style="background-image: linear-gradient(to bottom, rgb(250, 248, 181), rgba(255, 0, 0,0));">
+    <div>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f6dd53;">
+        <div class="container-fluid">
+            <img style="height: 30px; width: auto;" src="https://cdn-icons-png.flaticon.com/512/1518/1518840.png" alt="">
+            &nbsp;
+            &nbsp;
+            <a style="font-size: 30px;" class="navbar-brand" routerLink="/">MNSS Insurance</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+              </li>
+             
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Products
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" routerLink="/healthpoliciy">Health Policies</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" routerLink="/homepoliciy">Home Policies</a></li>
+                </ul>
+              </li>
+
+              
+
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" routerLink="/mypolicy">My Policy</a>
+              </li>
+
+          
+              
+            </ul>
+              <form class="d-flex" >
+
+               
+                <button  *ngIf="!logedin" style="background-color:rgb(217, 134, 2); color: rgb(255, 255, 255); margin-right: 20px;" routerLink="/login" type="button" class="btn btn-warning">Login</button>
+                <button  *ngIf="logedin" style="background-color:rgb(217, 134, 2); color: rgb(255, 255, 255); margin-right: 20px;" (click)="logout()" type="button" class="btn btn-warning">Logout</button>
+                <img style="height: 30px;" src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png" alt="">
+              &nbsp; &nbsp;
+              <h5 style="padding-top: 5px;">{{emailid}}</h5>
+            </form>
+
+         
+
+            
+            
+          </div>
+        </div>
+      </nav>
+    </div>
+
+
+    
+
+
+
+
+        <div class="container" >
+          <div class="row" >
+            <div class="col-8" *ngFor = "let policy of healthpolicy">
+              <div class="card mb-3" style="width: 700px; margin-left: 100px; margin-top: 10px; box-shadow: 5px 5px 10px; background-color: azure;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img [src]="policy.imageurl" style="width: 300px; margin-top: 20px; margin-left: 10px; border-radius: 10%;" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body" >
+                      <h5 class="card-title" style="color: rgb(217, 134, 2);">{{policy.policyname}}</h5>
+                      <p class="card-text">{{policy.policydescription}}</p>
+                      <button (click)="getpolicy(policy.policyid)" class="btn btn-warning">View More</button>
+                      <p class="card-text"><small class="text-muted">Login to View Details</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+              <app-hospital></app-hospital>
+          </div>
+          </div>
+        </div>
+
+
+
+
+
+        <!-- signup modal
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Signup</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+
+                <form #us="ngForm"  (ngSubmit)="newUser()">
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Email-Id:</label>
+                    <input type="email" class="form-control" id="exampleInputPassword1" name="email" [(ngModel)]="user.emailid">
+                  </div>
+                
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">password:</label>
+                    <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="password" [(ngModel)]="user.password">
+                  </div>
+            
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Mobile Number:</label>
+                    <input type="text" class="form-control" id="exampleInputmobileno"  name="mobilenumber" [(ngModel)]="user.mobilenumber">
+                  </div>
+            
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Address:</label>
+                    <input type="text" class="form-control" id="exampleInputaddress" name="address" [(ngModel)]="user.address">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Location:</label>
+                    <select class="form-select" aria-label="Default select example" name="location" [(ngModel)]="user.location">
+                        <option selected>Open this select menu</option>
+                        <option value="Urban">Urban</option>
+                        <option value="Rural">Rural</option>
+                     </select>
+                  </div>
+                  
+                  <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">DOB:</label>
+                      <input type="date" class="form-control" id="exampleInputdob" name="dob" [(ngModel)]="user.birthdate">
+                  </div>
+                  
+                  
+                  <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Create Account</button> -->
+                
+                <!-- </form>
+            
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>  -->
+
+
+  <!-- loginmodal -->
+
+
+  <!-- <div class="modal fade" id="exampleModallogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+
+                <form #loginForm="ngForm"   (ngSubmit)="userLogin(loginForm.value)" novalidate>
+                    
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Email address</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" ngModel #email=ngModel required minlength="2" maxlength="30">
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">Password</label>
+                          <input type="password" class="form-control" id="exampleInputPassword1" name="password" ngModel #password=ngModel required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" >Login</button>
+                   
+                </form>
+          
+            </div>
+              
+            
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+</body>
